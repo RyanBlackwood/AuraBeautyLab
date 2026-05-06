@@ -1,0 +1,11 @@
+ABL v5.1
+
+This rebuild removes fake procedural nails entirely.
+
+The preview now uses:
+- real photography
+- luxury aura rendering
+- premium style cards
+- realistic presentation
+
+No fake SVG fingers remain.
