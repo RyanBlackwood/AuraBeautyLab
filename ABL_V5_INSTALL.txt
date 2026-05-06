@@ -1,0 +1,17 @@
+Aura Beauty Lab v5.0 Final
+
+Commands:
+
+npm install
+npm run dev
+
+Build:
+
+npm run build
+cp -r dist/* .
+
+Deploy:
+
+git add .
+git commit -m "Deploy ABL v5.0"
+git push origin main
