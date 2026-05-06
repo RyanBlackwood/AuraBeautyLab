@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aura Beauty Lab — luxury nails powered by interactive design technology and AR try-on experiences." />
+  <title>Aura Beauty Lab | Luxury Nail Design Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="auraCanvas" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Aura Beauty Lab home">
+      <span class="brand-mark">A</span>
+      <span>
+        <strong>Aura Beauty Lab</strong>
+        <small>Luxury Nail Technology</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#studio">Design Studio</a>
+      <a href="#tryon">AR Try-On</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Book</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </header>
+
+  <main id="home">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Minnesota • Private Pre-Launch</p>
+        <h1>Luxury nails you can design, preview, and book before you sit down.</h1>
+        <p class="hero-text">Aura Beauty Lab blends premium nail artistry with interactive design technology. Choose your shape, color, finish, and accents — then preview the look through an AR-inspired try-on experience.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#studio">Start Designing</a>
+          <a class="btn ghost" href="#tryon">Preview AR Concept</a>
+        </div>
+        <div class="trust-row" aria-label="Brand highlights">
+          <span>AR-ready</span>
+          <span>Custom sets</span>
+          <span>Client profiles</span>
+          <span>Premium prep notes</span>
+        </div>
+      </div>
+
+      <div class="hero-card glass reveal delay-1" aria-label="Featured nail design preview">
+        <div class="phone-frame">
+          <div class="phone-top"></div>
+          <div class="nail-preview-card">
+            <span class="status-pill">Live Look</span>
+            <div class="hand-demo" aria-hidden="true">
+              <span class="finger f1"><i></i></span>
+              <span class="finger f2"><i></i></span>
+              <span class="finger f3"><i></i></span>
+              <span class="finger f4"><i></i></span>
+              <span class="finger f5"><i></i></span>
+            </div>
+            <h2>Rose Chrome Aura</h2>
+            <p>Almond • Medium • Chrome gloss • Accent shimmer</p>
+            <button class="mini-btn">Try On With Camera</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="studio" class="section-shell studio-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Interactive Nail Designer</p>
+        <h2>Build the exact set before booking.</h2>
+        <p>Clients can arrive confident, and the nail tech sees the selected look, colors, shape, and prep notes before the appointment.</p>
+      </div>
+
+      <div class="studio-grid">
+        <aside class="designer-panel glass reveal">
+          <label>Shape</label>
+          <div class="choice-grid" data-control="shape">
+            <button class="choice active">Almond</button>
+            <button class="choice">Coffin</button>
+            <button class="choice">Square</button>
+            <button class="choice">Oval</button>
+          </div>
+
+          <label>Finish</label>
+          <div class="choice-grid" data-control="finish">
+            <button class="choice active">Chrome</button>
+            <button class="choice">Gloss</button>
+            <button class="choice">Matte</button>
+            <button class="choice">Glitter</button>
+          </div>
+
+          <label>Color Aura</label>
+          <div class="swatches" data-control="color">
+            <button class="swatch active" style="--swatch:#f7b5d6" aria-label="Rose"></button>
+            <button class="swatch" style="--swatch:#d9c7ff" aria-label="Lilac"></button>
+            <button class="swatch" style="--swatch:#f8f3df" aria-label="Pearl"></button>
+            <button class="swatch" style="--swatch:#9ee7ff" aria-label="Ice blue"></button>
+            <button class="swatch" style="--swatch:#17121f" aria-label="Obsidian"></button>
+          </div>
+
+          <label>Length</label>
+          <input id="lengthSlider" type="range" min="1" max="4" value="2" />
+
+          <button id="saveLook" class="btn primary full">Save This Look</button>
+        </aside>
+
+        <div class="live-builder glass reveal delay-1">
+          <div class="builder-topline">
+            <span>Selected Look</span>
+            <strong id="priceEstimate">Estimated $85+</strong>
+          </div>
+          <div class="nail-set" aria-label="Nail design preview">
+            <span class="demo-nail"></span>
+            <span class="demo-nail"></span>
+            <span class="demo-nail accent"></span>
+            <span class="demo-nail"></span>
+            <span class="demo-nail"></span>
+          </div>
+          <h3 id="lookName">Rose Chrome Almond Set</h3>
+          <p id="lookDetails">Medium length, chrome finish, soft rose aura, shimmer accent nail.</p>
+          <div class="builder-actions">
+            <a class="btn ghost" href="#tryon">Open AR Preview</a>
+            <a class="btn primary" href="#contact">Book This Set</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tryon" class="section-shell tryon-section">
+      <div class="tryon-card glass reveal">
+        <div>
+          <p class="eyebrow">AR Try-On Concept</p>
+          <h2>Camera preview built for the final version.</h2>
+          <p>This starter site includes a polished AR placeholder. When ready, this can connect to a beauty AR SDK or a custom hand-tracking prototype so clients can preview nail designs on their own hand.</p>
+          <button id="cameraButton" class="btn primary">Launch Camera Preview</button>
+        </div>
+        <div class="camera-mock" aria-label="AR camera preview mockup">
+          <div class="camera-toolbar"><span></span><span></span><span></span></div>
+          <div class="scan-ring"></div>
+          <p id="cameraStatus">Camera preview locked for private build.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Service Menu</p>
+        <h2>Premium services with design-first booking.</h2>
+      </div>
+      <div class="service-grid">
+        <article class="service-card glass reveal"><h3>Gel Manicure</h3><p>Clean, durable polish with curated color matching.</p><strong>$45+</strong></article>
+        <article class="service-card glass reveal delay-1"><h3>Custom Full Set</h3><p>Shape, length, color, finish, art, and accents planned in advance.</p><strong>$85+</strong></article>
+        <article class="service-card glass reveal delay-2"><h3>Luxury Art Set</h3><p>Chrome, 3D effects, gems, hand art, themed designs, and premium finishes.</p><strong>$120+</strong></article>
+      </div>
+    </section>
+
+    <section id="gallery" class="section-shell gallery-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Gallery Preview</p>
+        <h2>Designed to feel editorial, not ordinary.</h2>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-tile tile-1"><span>Rose Chrome</span></div>
+        <div class="gallery-tile tile-2"><span>Pearl French</span></div>
+        <div class="gallery-tile tile-3"><span>Obsidian Gloss</span></div>
+        <div class="gallery-tile tile-4"><span>Crystal Aura</span></div>
+      </div>
+    </section>
+
+    <section class="section-shell tech-section">
+      <div class="tech-copy reveal">
+        <p class="eyebrow">Built Different</p>
+        <h2>Where your technical edge becomes the brand.</h2>
+        <p>The future admin dashboard can show saved looks, client preferences, prep notes, inventory, revenue trends, and design popularity — giving Aura Beauty Lab a system advantage from day one.</p>
+      </div>
+      <div class="dashboard glass reveal delay-1">
+        <div class="dash-row"><span>Saved Looks</span><strong>128</strong></div>
+        <div class="dash-row"><span>Top Color</span><strong>Rose Chrome</strong></div>
+        <div class="dash-row"><span>Upcoming Custom Sets</span><strong>14</strong></div>
+        <div class="dash-row"><span>Inventory Alerts</span><strong>3</strong></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-shell contact-section glass reveal">
+      <p class="eyebrow">Private Launch List</p>
+      <h2>Be first to try the Aura Beauty Lab experience.</h2>
+      <form id="leadForm">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <select name="service" required>
+          <option value="">Interested service</option>
+          <option>Gel manicure</option>
+          <option>Custom full set</option>
+          <option>Luxury art set</option>
+          <option>AR try-on beta</option>
+        </select>
+        <button class="btn primary" type="submit">Join Private List</button>
+      </form>
+      <p id="formMessage" class="form-message" role="status"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Aura Beauty Lab. Private pre-launch build.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
